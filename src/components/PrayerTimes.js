@@ -13,7 +13,7 @@ const PrayerTimes = ({ city }) => {
       setLoading(true); // Set loading to true while fetching data
       try {
         const response = await axios.get(
-          `http://api.aladhan.com/v1/timingsByCity?city=${city}&country=Bangladesh`
+          `https://api.aladhan.com/v1/timingsByCity?city=${city}&country=Bangladesh`
         );
         setPrayerTimes(response.data.data.timings);
       } catch (error) {
