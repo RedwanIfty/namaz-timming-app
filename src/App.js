@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import PrayerTimes from "./components/PrayerTimes";
+import CityInput from "./components/CityInput";
+import { Container } from "@mui/material";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const [city, setCity] = useState("Dhaka"); // Default city
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      {/* City input field to change the city */}
+      <CityInput city={city} setCity={setCity} />
+
+      {/* PrayerTimes component fetching data based on city */}
+      <PrayerTimes city={city} />
+    </Container>
   );
 }
 
